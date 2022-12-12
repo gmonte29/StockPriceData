@@ -10,7 +10,7 @@ def convert_to_excel(data, output_folder, fileName):
     df.to_excel(output_folder+'/'+fileName+'.xlsx')
     
 layout = [
-    [sg.Text("Stock price information entered below")],
+    [sg.Text("Information entered below:")],
     [sg.Text("Ticker:"),sg.InputText(key = 't')],
     [sg.Text("Period:"), sg.InputText(key = 'p')],
     [sg.Text("Output Folder:"), sg.InputText(key = '-folder-'), sg.FolderBrowse()],
@@ -34,21 +34,4 @@ while True:
     
     except:
         sg.popup_no_titlebar("error")
-
-
-
-''' 
-period can be following:
-    d - days
-    wk - weeks
-    mo - months
-'''
-''' 
-interval can be following:
-    m - minutes
-    h - hours
-    d - days
-    wk - weeks
-    mo - months
-'''
 
