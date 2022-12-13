@@ -5,16 +5,20 @@ import yfinance as yf
 #GUI Source
 import PySimpleGUI as sg
 
+
+sg.theme('Reddit')
+sg.set_options(font='calibri', text_color='black')
+
 def convert_to_excel(data, output_folder, fileName):
     df = pd.DataFrame.from_dict(dict(data))
     df.to_excel(output_folder+'/'+fileName+'.xlsx')
     
 layout = [
     [sg.Text("Information entered below:")],
-    [sg.Text("Ticker:"),sg.InputText(key = 't')],
-    [sg.Text("Period:"), sg.InputText(key = 'p')],
-    [sg.Text("Output Folder:"), sg.InputText(key = '-folder-'), sg.FolderBrowse()],
-    [sg.Text("Save As:"), sg.InputText(key = '-filename-')],
+    [sg.Text("Ticker:"),sg.InputText(key = 't'),sg.Push()],
+    [sg.Text("Period:"), sg.InputText(key = 'p'), sg.Push()],
+    [sg.Text("Output:"), sg.InputText(key = '-folder-'), sg.FolderBrowse(), sg.Push()],
+    [sg.Text("Save As:"), sg.InputText(key = '-filename-'), sg.Push()],
     [sg.Exit(), sg.Button("OK")]
 ]
 
