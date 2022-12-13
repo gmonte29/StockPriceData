@@ -14,7 +14,7 @@ def convert_to_excel(data, output_folder, fileName):
     df.to_excel(output_folder+'/'+fileName+'.xlsx')
     
 layout = [
-    [sg.Text("Information entered below:")],
+    [sg.Text("Enter information below:")],
     [sg.Text("Ticker:"),sg.InputText(key = 't'),sg.Push()],
     [sg.Text("Period:"), sg.InputText(key = 'p'), sg.Push()],
     [sg.Text("Output:"), sg.InputText(key = '-folder-'), sg.FolderBrowse(), sg.Push()],
